@@ -38,6 +38,16 @@ dashboards:
       gnetId: 6417
       revision: 1
       datasource: Prometheus
+affinity:
+  podAntiAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+    - labelSelector:
+        matchExpressions:
+        - key: app.kubernetes.io/instance
+          operator: In
+          values:
+          - server
+      topologyKey: "kubernetes.io/hostname"
 route:
   main:
     annotations:

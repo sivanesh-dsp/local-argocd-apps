@@ -12,7 +12,7 @@ helm repo update
 
 helm install argocd argo/argo-cd \
   --namespace argocd \
-  --version 9.5.2
+  --version 9.5.11
 ```
 
 ### Step 2 - Apply this root-app `app-of-apps` application to deploy child applications
