@@ -38,6 +38,8 @@ applications:
             #   hostname: argocd.local
             #   tls: false
             httproute:
+              annotations:
+                link.argocd.argoproj.io/external-link: http://argocd.local
               enabled: true
               parentRefs:
                 - group: gateway.networking.k8s.io
@@ -184,6 +186,8 @@ applications:
             retention: "3d"
             route:
               main:
+                annotations:
+                  link.argocd.argoproj.io/external-link: http://prometheus.local
                 enabled: true
                 parentRefs:
                   - group: gateway.networking.k8s.io
