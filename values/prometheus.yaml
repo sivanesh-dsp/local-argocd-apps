@@ -1,0 +1,21 @@
+server:
+  persistentVolume:
+    size: 1Gi
+  retention: "3d"
+  route:
+    main:
+      annotations:
+        link.argocd.argoproj.io/external-link: http://prometheus.local
+      enabled: true
+      parentRefs:
+        - group: gateway.networking.k8s.io
+          kind: Gateway
+          name: traefik-gateway
+          namespace: traefik
+          sectionName: web
+      hostnames:
+        - prometheus.local
+prometheus-pushgateway:
+  enabled: false
+alertmanager:
+  enabled: false

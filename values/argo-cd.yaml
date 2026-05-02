@@ -1,0 +1,25 @@
+configs:
+  params:
+    server.insecure: true
+global:
+  domain: argocd.local
+server:
+  extraArgs: ["--insecure"]
+  # ingress:
+  #   enabled: true
+  #   ingressClassName: nginx
+  #   hostname: argocd.local
+  #   tls: false
+  httproute:
+    annotations:
+      link.argocd.argoproj.io/external-link: http://argocd.local
+    enabled: true
+    parentRefs:
+      - group: gateway.networking.k8s.io
+        kind: Gateway
+        name: traefik-gateway
+        namespace: traefik
+        sectionName: web
+    hostnames:
+      - argocd.local
+      - argocd.test
