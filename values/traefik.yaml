@@ -47,3 +47,6 @@ ports:
   websecure:
     port: 443
     exposedPort: 443
+tolerations:
+  - effect: NoSchedule
+    operator: Exists
