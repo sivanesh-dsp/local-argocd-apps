@@ -51,7 +51,7 @@ affinity:
 route:
   main:
     annotations:
-      link.argocd.argoproj.io/external-link: http://grafana.local
+      link.argocd.argoproj.io/external-link: http://grafana.localhost
     enabled: true
     parentRefs:
       - group: gateway.networking.k8s.io
@@ -60,4 +60,4 @@ route:
         namespace: traefik
         sectionName: web
     hostnames:
-      - grafana.local
+      - grafana.localhost

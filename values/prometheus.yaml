@@ -5,7 +5,7 @@ server:
   route:
     main:
       annotations:
-        link.argocd.argoproj.io/external-link: http://prometheus.local
+        link.argocd.argoproj.io/external-link: http://prometheus.localhost
       enabled: true
       parentRefs:
         - group: gateway.networking.k8s.io
@@ -14,7 +14,7 @@ server:
           namespace: traefik
           sectionName: web
       hostnames:
-        - prometheus.local
+        - prometheus.localhost
 prometheus-pushgateway:
   enabled: false
 alertmanager:

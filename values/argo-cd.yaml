@@ -2,7 +2,7 @@ configs:
   params:
     server.insecure: true
 global:
-  domain: argocd.local
+  domain: argocd.localhost
 server:
   extraArgs: ["--insecure"]
   # ingress:
@@ -12,7 +12,7 @@ server:
   #   tls: false
   httproute:
     annotations:
-      link.argocd.argoproj.io/external-link: http://argocd.local
+      link.argocd.argoproj.io/external-link: http://argocd.localhost
     enabled: true
     parentRefs:
       - group: gateway.networking.k8s.io
@@ -21,5 +21,4 @@ server:
         namespace: traefik
         sectionName: web
     hostnames:
-      - argocd.local
-      - argocd.test
+      - argocd.localhost
